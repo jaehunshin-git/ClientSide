@@ -5,7 +5,7 @@ import java.util.*;
 //  Client 는 Server side 의 sendtoall() method 의 한계로 자신이 보낸 메시지를 다시 한번 받게된다.
 class Client {
     public static int inPort = 9999;
-    public static String address = "192.168.0.2";
+    public static String address = "192.168.0.23";
 
 
     public static void main(String[] args) {
@@ -25,7 +25,7 @@ class Client {
             // 여기서 클라이언트의 키보드 입력을 받아 서버로 보낸다.
             while (!"exit".equalsIgnoreCase(line)) {
                 line = sc.nextLine();
-                out.println("<Client>: " + line);   //클라이언트가 자신의 콘솔에 입력한 내용을 콘솔에 다시 보여준다.
+                out.println(line);   //클라이언트가 자신의 콘솔에 입력한 내용을 콘솔에 다시 보여준다.
                 out.flush();
             }
             sc.close();
