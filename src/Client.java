@@ -4,7 +4,7 @@ import java.util.*;
 
 class Client {
     public static int inPort = 9999;
-    public static String address ="192.168.0.91";
+    public static String address = "192.168.0.2";
 
 
     public static void main(String[] args) {
@@ -24,12 +24,12 @@ class Client {
             // 여기서 클라이언트의 키보드 입력을 받아 서버로 보낸다.
             while (!"exit".equalsIgnoreCase(line)) {
                 line = sc.nextLine();
-                out.println(line);
+                out.println("<Client>: " + line);   //클라이언트가 자신의 콘솔에 입력한 내용을 콘솔에 다시 보여준다.
                 out.flush();
             }
             sc.close();
+        } catch (Exception e) {
         }
-        catch (Exception e) {}
     }
 
 }
@@ -49,18 +49,18 @@ class ChatHandler implements Runnable {
             // 여기서 서버에서 보내주는 Line 을 받아서 콘솔에 출력해줌
             String line;
             while ((line = in.readLine()) != null) {
-                System.out.println("("+ socket.getInetAddress()+ ") " + line);
+//                System.out.println("("+ socket.getInetAddress()+ ") " + line);
+                System.out.println(line);   // 서버가 보내주는 내용을 클라이언트 콘솔에 출력
             }
-        }
-        catch (IOException e) { }
-        finally {
+        } catch (IOException e) {
+        } finally {
             try {
                 if (in != null) {
                     in.close();
                     socket.close();
                 }
+            } catch (IOException e) {
             }
-            catch (IOException e) { }
         }
     }
 }
