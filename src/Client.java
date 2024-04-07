@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
+//  Client 는 Server side 의 sendtoall() method 의 한계로 자신이 보낸 메시지를 다시 한번 받게된다.
 class Client {
     public static int inPort = 9999;
     public static String address = "192.168.0.2";
